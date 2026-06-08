@@ -19,10 +19,28 @@
         body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.8; margin: 0; padding: 20px; transition: 0.3s; }
         .wrapper { max-width: 800px; margin: 0 auto; }
         
-        /* Butang Toggle */
+        /* ☀️ & 🌙 BUTANG TOGGLE RESPONSIF (SYMBOL ONLY) */
         #theme-toggle { 
-            position: fixed; top: 20px; right: 20px; padding: 10px 15px; cursor: pointer; 
-            background: var(--accent); color: white; border: none; border-radius: 5px; font-family: 'Fira Code', monospace; z-index: 100;
+            position: fixed; 
+            top: 20px; 
+            right: 20px; 
+            width: 45px;
+            height: 45px;
+            cursor: pointer; 
+            background: var(--accent); 
+            color: white; 
+            border: none; 
+            border-radius: 50%; /* Ditukar kepada bentuk bulat yang moden */
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000; /* Memastikan butang sentiasa di lapisan paling atas */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            transition: transform 0.2s ease, background 0.3s;
+        }
+        #theme-toggle:active {
+            transform: scale(0.9);
         }
 
         .author-box { text-align: center; margin-bottom: 60px; padding-bottom: 40px; border-bottom: 2px dashed #ddd; }
@@ -30,18 +48,47 @@
         .terminal-text { font-family: 'Fira Code', monospace; font-size: 0.9rem; color: var(--accent); }
         
         .post { margin-bottom: 80px; padding: 30px; background: var(--card-bg); border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); transition: 0.3s; }
-        .post-meta { font-family: 'Fira Code', monospace; font-size: 0.75rem; color: #888; margin-bottom: 15px; }
+        .post-meta { font-family: 'Fira Code', monospace; font-size: 0.75rem; color: #888; margin-bottom: 15px; display: flex; flex-wrap: wrap; gap: 5px; align-items: center; }
         .post h2 { font-family: 'Lora', serif; font-size: 2.2rem; margin: 0 0 20px 0; color: var(--primary); }
         
-        .image-frame { width: 100%; height: 400px; background: #eee; border: 1px solid #ddd; display: flex; align-items: center; justify-content: center; margin-top: 25px; border-radius: 4px; }
+        /* 📱 FRAME GAMBAR YANG RESPONSIF UNTUK TELEFON */
+        .image-frame { 
+            width: 100%; 
+            height: auto; /* Membuang had tinggi 400px yang menyebabkan herot/terpotong */
+            aspect-ratio: 16 / 10; /* Mengekalkan nisbah paparan kotak yang cantik */
+            background: #eee; 
+            border: 1px solid #ddd; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin-top: 25px; 
+            border-radius: 4px; 
+            overflow: hidden;
+        }
+        .image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Memastikan gambar memenuhi ruang secara sekata */
+        }
+
         .status-badge { font-family: 'Fira Code', monospace; font-weight: 600; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; background: #d4edda; color: #155724; }
         
         footer { text-align: center; padding: 50px; background: var(--footer-bg); color: var(--footer-text); font-family: 'Fira Code', monospace; border-radius: 8px; font-size: 0.85rem; }
+
+        /* KOD RESPONSIF SKRIN TELEFON KECIL */
+        @media (max-width: 600px) {
+            body { padding: 12px; }
+            .author-name { font-size: 1.8rem; }
+            .post { padding: 20px; margin-bottom: 40px; }
+            .post h2 { font-size: 1.5rem; }
+            #theme-toggle { top: 15px; right: 15px; width: 40px; height: 40px; font-size: 1.1rem; }
+            .image-frame { aspect-ratio: 4 / 3; } /* Ubah nisbah sedikit agar lebih jelas di skrin menegak */
+        }
     </style>
 </head>
 <body>
 
-<button id="theme-toggle" onclick="toggleTheme()">Toggle Mode</button>
+<button id="theme-toggle" onclick="toggleTheme()" aria-label="Toggle Theme">🌙</button>
 
 <div class="wrapper">
     <header class="author-box">
@@ -50,45 +97,40 @@
         <p>Advanced Computing & Digital Creative Arts</p>
     </header>
 
-    <!-- Project 1 -->
     <article class="post">
         <div class="post-meta">06.06.2026 // 3D_MODELING // <span class="status-badge">STATUS: COMPLETED</span></div>
         <h2>Capturing Twilight in Woodwork Precision</h2>
         <p>Building high-fidelity assets in Maya. Integrated traditional woodwork textures with procedural lighting to simulate a twilight environment. Minimalist architecture focused on polygon optimization and efficient topology.</p>
-        <<div class="image-frame">
-    <img src="3D Modelling.jpg" alt="3D Modelling" style="width:100%; height:100%; object-fit:cover;">
-</div>
+        <div class="image-frame">
+            <img src="3D Modelling.jpg" alt="3D Modelling">
+        </div>
     </article>
 
-    <!-- Project 2 -->
     <article class="post">
         <div class="post-meta">06.06.2026 // 3D_ANIMATION // <span class="status-badge">STATUS: COMPLETED</span></div>
         <h2>Diligence Behind Animation Rendering</h2>
         <p>Executed complex character rigging and keyframe animation in Blender. Focused on non-linear animation paths and GPU-accelerated rendering pipelines to balance quality and production time.</p>
         <div class="image-frame">
-    <div class="image-frame">
-    <img src="3D Animation.png" alt="3D Animation" style="width:100%; height:100%; object-fit:cover;">
-</div>
+            <img src="3D Animation.png" alt="3D Animation">
+        </div>
     </article>
 
-    <!-- Project 3 -->
     <article class="post">
         <div class="post-meta">06.06.2026 // WEB_DEVELOPMENT // <span class="status-badge">STATUS: COMPLETED</span></div>
         <h2>Learning Through the Chaos of Code</h2>
         <p>Full-stack deployment of web projects. Implemented responsive UI using CSS Grid/Flexbox and backend connectivity. Version control managed via Git/GitHub; environment orchestration using XAMPP.</p>
         <div class="image-frame">
-    <img src="Website.png" alt="Website Development" style="width:100%; height:100%; object-fit:cover;">
-</div>
+            <img src="Website.png" alt="Website Development">
+        </div>
     </article>
 
-    <!-- Project 4 -->
     <article class="post">
         <div class="post-meta">06.06.2026 // GRAPHIC_DESIGN // <span class="status-badge">STATUS: COMPLETED</span></div>
         <h2>Real Impact for "Jero Fried Chicken"</h2>
         <p>Branding and UI/UX design project. Analyzed target demographic to optimize color psychology (Red/Yellow/Orange). Delivered high-impact visual assets with a minimalist design language.</p>
         <div class="image-frame">
-    <img src="Jero.png" alt="Jero Fried Chicken" style="width:100%; height:100%; object-fit:cover;">
-</div>
+            <img src="Jero.png" alt="Jero Fried Chicken">
+        </div>
     </article>
 </div>
 
@@ -103,7 +145,16 @@
 
 <script>
     function toggleTheme() {
-        document.body.classList.toggle('dark-mode');
+        const body = document.body;
+        const btn = document.getElementById('theme-toggle');
+        body.classList.toggle('dark-mode');
+        
+        // Tukar simbol ikon secara dinamik berdasarkan mod aktif
+        if (body.classList.contains('dark-mode')) {
+            btn.textContent = '☀️';
+        } else {
+            btn.textContent = '🌙';
+        }
     }
 </script>
 
