@@ -6,7 +6,7 @@
     <title>Siti Zulaiha | Degree's Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;600&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     <style>
-        /* CSS Variables untuk tema */
+
         :root { 
             --primary: #2d3436; --accent: #0984e3; --bg: #fdfdfd; 
             --text: #333; --card-bg: #fff; --footer-bg: #2d3436; --footer-text: #dfe6e9;
@@ -19,7 +19,6 @@
         body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: var(--text); line-height: 1.8; margin: 0; padding: 20px; transition: 0.3s; }
         .wrapper { max-width: 800px; margin: 0 auto; }
         
-        /* ☀️ & 🌙 BUTANG TOGGLE RESPONSIF (SYMBOL ONLY) */
         #theme-toggle { 
             position: fixed; 
             top: 20px; 
@@ -30,12 +29,12 @@
             background: var(--accent); 
             color: white; 
             border: none; 
-            border-radius: 50%; /* Ditukar kepada bentuk bulat yang moden */
+            border-radius: 50%; 
             font-size: 1.2rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            z-index: 10000; /* Memastikan butang sentiasa di lapisan paling atas */
+            z-index: 10000;
             box-shadow: 0 4px 10px rgba(0,0,0,0.15);
             transition: transform 0.2s ease, background 0.3s;
         }
@@ -51,11 +50,11 @@
         .post-meta { font-family: 'Fira Code', monospace; font-size: 0.75rem; color: #888; margin-bottom: 15px; display: flex; flex-wrap: wrap; gap: 5px; align-items: center; }
         .post h2 { font-family: 'Lora', serif; font-size: 2.2rem; margin: 0 0 20px 0; color: var(--primary); }
         
-        /* 📱 FRAME GAMBAR YANG RESPONSIF UNTUK TELEFON */
+
         .image-frame { 
             width: 100%; 
-            height: auto; /* Membuang had tinggi 400px yang menyebabkan herot/terpotong */
-            aspect-ratio: 16 / 10; /* Mengekalkan nisbah paparan kotak yang cantik */
+            height: auto; 
+            aspect-ratio: 16 / 10; 
             background: #eee; 
             border: 1px solid #ddd; 
             display: flex; 
@@ -68,21 +67,20 @@
         .image-frame img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* Memastikan gambar memenuhi ruang secara sekata */
+            object-fit: cover; 
         }
 
         .status-badge { font-family: 'Fira Code', monospace; font-weight: 600; padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; background: #d4edda; color: #155724; }
         
         footer { text-align: center; padding: 50px; background: var(--footer-bg); color: var(--footer-text); font-family: 'Fira Code', monospace; border-radius: 8px; font-size: 0.85rem; }
 
-        /* KOD RESPONSIF SKRIN TELEFON KECIL */
         @media (max-width: 600px) {
             body { padding: 12px; }
             .author-name { font-size: 1.8rem; }
             .post { padding: 20px; margin-bottom: 40px; }
             .post h2 { font-size: 1.5rem; }
             #theme-toggle { top: 15px; right: 15px; width: 40px; height: 40px; font-size: 1.1rem; }
-            .image-frame { aspect-ratio: 4 / 3; } /* Ubah nisbah sedikit agar lebih jelas di skrin menegak */
+            .image-frame { aspect-ratio: 4 / 3; } 
         }
     </style>
 </head>
@@ -135,7 +133,7 @@
 </div>
 
 <footer>
-    <div>$ cat /var/log/blog_zulaiha.info</div>
+    <div>blog_zulaiha.info</div>
     <br>
     "Designed and developed by Siti Zulaiha."<br>
     "Mastering the craft of digital systems, one commit at a time."<br>
@@ -149,7 +147,6 @@
         const btn = document.getElementById('theme-toggle');
         body.classList.toggle('dark-mode');
         
-        // Tukar simbol ikon secara dinamik berdasarkan mod aktif
         if (body.classList.contains('dark-mode')) {
             btn.textContent = '☀️';
         } else {
